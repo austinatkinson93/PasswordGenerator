@@ -5,7 +5,7 @@ var lowLettersArray = "abcdefghijklmnopqrstuvwxyz".split("");
 var specialArray = "!#$%&'()*+-./:;<=>?@[\]^_`{|}~ '".split("");
 var numbersArray = "1234567890".split("");
 
-var password = "";
+
 
 
 //generate random functions
@@ -25,6 +25,7 @@ var password = "";
 
 
 function generatePassword() {
+    var password = "";
 
 
     // create userinput confirms
@@ -33,6 +34,7 @@ function generatePassword() {
     var specialAnswer = confirm("would you like your password to contain special characters?")
     var numbersAnswer = confirm("would you like your password to contain numbers?")
 
+    // all true
     if (capLettersAnswer === true && lowLettersAnswer === true && specialAnswer === true && numbersAnswer === true) {
         var all = uppLettersArray += lowLettersArray += specialArray += numbersArray;
         var pasLength = prompt("how long would you like your password to be?")
@@ -42,26 +44,9 @@ function generatePassword() {
             password += all.substring(character, character + 1);
         }
         return password
-    } else if (capLettersAnswer === true && lowLettersAnswer === true && specialAnswer === true) {
-        var all = uppLettersArray += lowLettersArray += specialArray;
-        var pasLength = prompt("how long would you like your password to be?")
 
-        for (var index = 0; index < pasLength; index++) {
-            var character = Math.floor(Math.random() * all.length);
-            password += all.substring(character, character + 1);
-        }
-        return password
     }
-    else if (capLettersAnswer === true && lowLettersAnswer === true) {
-        var all = uppLettersArray += lowLettersArray;
-        var pasLength = prompt("how long would you like your password to be?")
-
-        for (var index = 0; index < pasLength; index++) {
-            var character = Math.floor(Math.random() * all.length);
-            password += all.substring(character, character + 1);
-        }
-        return password
-    }
+    // numbers not included
     else if (capLettersAnswer === true && lowLettersAnswer === true && specialAnswer === true) {
         var all = uppLettersArray += lowLettersArray += specialArray;
         var pasLength = prompt("how long would you like your password to be?")
@@ -71,9 +56,155 @@ function generatePassword() {
             password += all.substring(character, character + 1);
         }
         return password
-    } else {
+    }
+    //  special characters not included
+    else if (capLettersAnswer === true && lowLettersAnswer === true && numbersAnswer === true) {
+        var all = uppLettersArray += lowLettersArray += numbersArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // lower case letters not included
+    else if (capLettersAnswer === true && specialAnswer === true && numbersAnswer === true) {
+        var all = uppLettersArray += numbersArray += specialArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // uppercase letters not included
+    else if (lowLettersAnswer === true && specialAnswer === true && numbersAnswer === true) {
+        var all = lowLettersArray += numbersArray += specialArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // uppercase and lowercase only
+    else if (capLettersAnswer === true && lowLettersArray === true) {
+        var all = uppLettersArray += lowLettersArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // uppercase and numbers only
+    else if (capLettersAnswer === true && numbersAnswer === true) {
+        var all = uppLettersArray += numbersArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // uppercase and special characters only
+    else if (capLettersAnswer === true && specialAnswer === true) {
+        var all = uppLettersArray += specialArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // lowercase and numbers only
+    else if (lowLettersAnswer === true && numbersAnswer === true) {
+        var all = lowLettersArray += numbersArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // lowercase and special characters only
+    else if (lowLettersAnswer === true && specialAnswer === true) {
+        var all = lowLettersArray += specialArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // special characters and numbers only
+    else if (specialAnswer === true && numbersAnswer === true) {
+        var all = numbersArray += specialArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // only uppercase
+    else if (capLettersAnswer === true) {
+        var all = uppLettersArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // only lowercase
+    else if (lowLettersAnswer === true) {
+        var all = lowLettersArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    // only Numbers
+    else if (numbersAnswer === true) {
+        var all = numbersArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+
+    // only special characters
+    else if (specialAnswer === true) {
+        var all = specialArray;
+        var pasLength = prompt("how long would you like your password to be?")
+
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * all.length);
+            password += all.substring(character, character + 1);
+        }
+        return password
+    }
+    else {
         alert("you must choose at least one parameter!")
     }
+
 }
 
 
