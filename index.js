@@ -5,8 +5,45 @@ var lowLettersArray = "abcdefghijklmnopqrstuvwxyz".split("");
 var specialArray = "!#$%&'()*+-./:;<=>?@[\]^_`{|}~ '".split("");
 var numbersArray = "1234567890".split("");
 
-var possibleChar = [];
+var possibleChar = "";
+var password = "";
 
+
+function generatePassword() {
+    var pasLength = prompt("how long would you like your password to be?")
+
+    var capLettersAnswer = confirm("would you like your password to contain capital letters?")
+    var lowLettersAnswer = confirm("would you like your password to contain lowercase letters?")
+    var specialAnswer = confirm("would you like your password to contain special characters?")
+    var numbersAnswer = confirm("would you like your password to contain numbers?")
+
+    
+    if (capLettersAnswer === true) {
+        possibleChar.concat(uppLettersArray);
+    }
+    else if (lowLettersAnswer === true) {
+        possibleChar.concat(lowLettersArray);
+    }
+    else if (specialAnswer === true) {
+        possibleChar.concat(specialArray);
+    }
+    else if (numbersAnswer === true) {
+        possibleChar.concat(numbersArray);
+    }
+    else {
+        alert("You must choose at least one parameter")
+    }
+    
+
+    for (var index = 0; index < pasLength; index++) {
+        var character = Math.floor(Math.random() * possibleChar.length);
+        password += possibleChar.substring(character, character + 1);
+    }
+   
+    return password
+}
+
+console.log( generatePassword())
 
 //generate random functions
 // function getRandomUpper() {
@@ -47,7 +84,7 @@ var possibleChar = [];
 
 //     }
 //     // numbers not included
-//     else if (capLettersAnswer === true && lowLettersAnswer === true && specialAnswer === true) {
+//     else if (capLettersAnswer === true && lowLettersAnswer === true && specialAnswer === true && numbersAnswer !== true) {
 //         var all = uppLettersArray += lowLettersArray += specialArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -58,7 +95,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     //  special characters not included
-//     else if (capLettersAnswer === true && lowLettersAnswer === true && numbersAnswer === true) {
+//     else if (capLettersAnswer === true && lowLettersAnswer === true && specialAnswer !== true && numbersAnswer === true) {
 //         var all = uppLettersArray += lowLettersArray += numbersArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -69,7 +106,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // lower case letters not included
-//     else if (capLettersAnswer === true && specialAnswer === true && numbersAnswer === true) {
+//     else if (capLettersAnswer === true && lowLettersAnswer !== true && specialAnswer === true && numbersAnswer === true) {
 //         var all = uppLettersArray += numbersArray += specialArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -80,7 +117,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // uppercase letters not included
-//     else if (lowLettersAnswer === true && specialAnswer === true && numbersAnswer === true) {
+//     else if (capLettersAnswer !== true && lowLettersAnswer === true && specialAnswer === true && numbersAnswer === true) {
 //         var all = lowLettersArray += numbersArray += specialArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -91,7 +128,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // uppercase and lowercase only
-//     else if (capLettersAnswer === true && lowLettersArray === true) {
+//     else if (capLettersAnswer === true && lowLettersAnswer === true && specialAnswer !== true && numbersAnswer !== true) {
 //         var all = uppLettersArray += lowLettersArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -102,7 +139,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // uppercase and numbers only
-//     else if (capLettersAnswer === true && numbersAnswer === true) {
+//     else if (capLettersAnswer === true && lowLettersAnswer !== true && specialAnswer !== true && numbersAnswer === true) {
 //         var all = uppLettersArray += numbersArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -113,7 +150,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // uppercase and special characters only
-//     else if (capLettersAnswer === true && specialAnswer === true) {
+//     else if (capLettersAnswer === true && lowLettersAnswer !== true && specialAnswer === true && numbersAnswer !== true) {
 //         var all = uppLettersArray += specialArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -124,7 +161,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // lowercase and numbers only
-//     else if (lowLettersAnswer === true && numbersAnswer === true) {
+//     else if (capLettersAnswer !== true && lowLettersAnswer === true && specialAnswer !== true && numbersAnswer === true) {
 //         var all = lowLettersArray += numbersArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -135,7 +172,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // lowercase and special characters only
-//     else if (lowLettersAnswer === true && specialAnswer === true) {
+//     else if (capLettersAnswer !== true && lowLettersAnswer === true && specialAnswer === true && numbersAnswer !== true) {
 //         var all = lowLettersArray += specialArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -146,7 +183,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // special characters and numbers only
-//     else if (specialAnswer === true && numbersAnswer === true) {
+//     else if (capLettersAnswer !== true && lowLettersAnswer !== true && specialAnswer === true && numbersAnswer === true) {
 //         var all = numbersArray += specialArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -157,7 +194,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // only uppercase
-//     else if (capLettersAnswer === true) {
+//     else if (capLettersAnswer === true && lowLettersAnswer !== true && specialAnswer !== true && numbersAnswer !== true) {
 //         var all = uppLettersArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -168,7 +205,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // only lowercase
-//     else if (lowLettersAnswer === true) {
+//     else if (capLettersAnswer !== true && lowLettersAnswer === true && specialAnswer !== true && numbersAnswer !== true) {
 //         var all = lowLettersArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -179,7 +216,7 @@ var possibleChar = [];
 //         return password
 //     }
 //     // only Numbers
-//     else if (numbersAnswer === true) {
+//     else if (capLettersAnswer !== true && lowLettersAnswer !== true && specialAnswer !== true && numbersAnswer === true) {
 //         var all = numbersArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -191,7 +228,7 @@ var possibleChar = [];
 //     }
 
 //     // only special characters
-//     else if (specialAnswer === true) {
+//     else if (capLettersAnswer !== true && lowLettersAnswer !== true && specialAnswer === true && numbersAnswer !== true) {
 //         var all = specialArray;
 //         var pasLength = prompt("how long would you like your password to be?")
 
@@ -204,43 +241,8 @@ var possibleChar = [];
 //     else {
 //         alert("you must choose at least one parameter!")
 //     }
+// }
 
 
 
 
-
-
-
-function generatePassword() {
-    var pasLength = prompt("how long would you like your password to be?")
-
-    var capLettersAnswer = confirm("would you like your password to contain capital letters?")
-    var lowLettersAnswer = confirm("would you like your password to contain lowercase letters?")
-    var specialAnswer = confirm("would you like your password to contain special characters?")
-    var numbersAnswer = confirm("would you like your password to contain numbers?")
-
-    
-    if (capLettersAnswer === true) {
-        possibleChar.concat(uppLettersArray);
-    }
-    else if (lowLettersAnswer === true) {
-        possibleChar.concat(lowLettersArray);
-    }
-    else if (specialAnswer === true) {
-        possibleChar.concat(specialArray);
-    }
-    else if (numbersAnswer === true) {
-        possibleChar.concat(numbersArray);
-    }
-    else {
-        alert("You must choose at least one parameter")
-    }
-    
-
-    for (var index = 0; index < pasLength; index++) {
-        var character = Math.floor(Math.random() * possibleChar.length);
-        password += possibleChar.substring(character, character + 1);
-    }
-    return password
-
-}
