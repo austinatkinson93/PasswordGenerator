@@ -5,45 +5,55 @@ var lowLettersArray = "abcdefghijklmnopqrstuvwxyz".split("");
 var specialArray = "!#$%&'()*+-./:;<=>?@[\]^_`{|}~ '".split("");
 var numbersArray = "1234567890".split("");
 
-var possibleChar = "";
-var password = "";
+var gen = document.getElementById("generate")
+//  var password = document.getElementById("password")
+
+ var password = "";
+
+// function concatt() {
+//     uppLettersArray = uppLettersArray.concat(lowLettersArray)
+//     console.log(uppLettersArray)
+// }
+// concatt()
 
 
 function generatePassword() {
+
+    var possibleChar = [];
     var pasLength = prompt("how long would you like your password to be?")
 
     var capLettersAnswer = confirm("would you like your password to contain capital letters?")
     var lowLettersAnswer = confirm("would you like your password to contain lowercase letters?")
     var specialAnswer = confirm("would you like your password to contain special characters?")
     var numbersAnswer = confirm("would you like your password to contain numbers?")
-
-    
+  
     if (capLettersAnswer === true) {
-        possibleChar.concat(uppLettersArray);
+        possibleChar = possibleChar.concat(uppLettersArray);
     }
     else if (lowLettersAnswer === true) {
         possibleChar.concat(lowLettersArray);
+        console.log(possibleChar)
     }
     else if (specialAnswer === true) {
-        possibleChar.concat(specialArray);
+        possibleChar = possibleChar.concat(specialArray);
     }
     else if (numbersAnswer === true) {
-        possibleChar.concat(numbersArray);
-    }
-    else {
-        alert("You must choose at least one parameter")
+        possibleChar = possibleChar.concat(numbersArray);
     }
     
 
-    for (var index = 0; index < pasLength; index++) {
-        var character = Math.floor(Math.random() * possibleChar.length);
-        password += possibleChar.substring(character, character + 1);
-    }
-   
-    return password
-}
+    if (capLettersAnswer || lowLettersAnswer || specialAnswer || numbersAnswer) {
+        for (var index = 0; index < pasLength; index++) {
+            var character = Math.floor(Math.random() * possibleChar.length);
+            password.concat(possibleChar)
+        }
 
-console.log( generatePassword())
+        return password
+    } else {
+        alert("You must choose at least one parameter")
+    }
+}
+console.log(password)
 
 //generate random functions
 // function getRandomUpper() {
