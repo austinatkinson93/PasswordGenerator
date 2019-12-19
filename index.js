@@ -30,22 +30,26 @@ function generatePassword() {
     if (capLettersAnswer === true) {
         possibleChar = possibleChar.concat(uppLettersArray);
     }
-    else if (lowLettersAnswer === true) {
+
+    if (lowLettersAnswer === true) {
         possibleChar.concat(lowLettersArray);
-        console.log(possibleChar)
-    }
-    else if (specialAnswer === true) {
-        possibleChar = possibleChar.concat(specialArray);
-    }
-    else if (numbersAnswer === true) {
-        possibleChar = possibleChar.concat(numbersArray);
     }
     
+    if (specialAnswer === true) {
+        possibleChar = possibleChar.concat(specialArray);
+    }
+    
+    if (numbersAnswer === true) {
+        possibleChar = possibleChar.concat(numbersArray);
+        console.log(possibleChar)
+    }
+     
 
     if (capLettersAnswer || lowLettersAnswer || specialAnswer || numbersAnswer) {
         for (var index = 0; index < pasLength; index++) {
             var character = Math.floor(Math.random() * possibleChar.length);
-            password.concat(possibleChar)
+            password = password.concat(character)
+            console.log(password)
         }
 
         return password
@@ -53,7 +57,6 @@ function generatePassword() {
         alert("You must choose at least one parameter")
     }
 }
-console.log(password)
 
 //generate random functions
 // function getRandomUpper() {
