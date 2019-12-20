@@ -10,13 +10,13 @@ var gen = document.getElementById("generate");
 var copy = document.getElementById("copy");
 
 
-var password = "";
 
 // generate password function
 function generatePassword() {
     var possibleChar = [];
     var pasLength = prompt("how long would you like your password to be?");
-
+        var password = "";
+    
     if (pasLength < 128 && pasLength > 8) {
 
         var capLettersAnswer = confirm(
@@ -59,7 +59,7 @@ function generatePassword() {
 
                 var characterIndex = Math.floor(Math.random() * possibleChar.length);
                 var character = possibleChar[characterIndex];
-                password = password.concat(character);
+                password = password += character;
 
             }
 

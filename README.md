@@ -9,8 +9,18 @@ Hi! welcome to my Password Generator application, it should (Hopefully) create a
 ## Usage
 * To use the website simply click the "Generate Password" button and answer the prompts.
     - At least one parameter must be chosen to attain a password from the website
+
+    ![Parameter Alert](images/P_alert.png)
+
+    - your password length must also be between 8 and 128 characters, failing to do so will result in a prompt: 
+
+    ![Length Alert](images/length_alert.png)
+
+
 * Clicking the "Copy to Clipboard" button will add the button to your clipboard making it easy to paste into whatever page you may need to use it in.
 
+
+Enjoy!
 
 ## Credits 
 

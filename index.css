@@ -29,6 +29,7 @@ html, body {
 }
 
 .passwordbox {
+    min-width: 80%;
     
 }
 
@@ -36,7 +37,7 @@ html, body {
     margin: 10px 30px;
     padding: 5px;
     min-height: 200px;
-    width: 850px;
+    min-width: 80%;
     align-items: center;
     
 }
