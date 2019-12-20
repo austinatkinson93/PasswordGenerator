@@ -22,14 +22,16 @@ html, body {
 }
 
 #header2 {
-    width: 100%;
     margin: 25px;
     padding: 8px;
     border-bottom: solid 2px lightgrey;
+    width: 900px;
 }
 
+.h2 {
+    width: 900px;
+}
 .passwordbox {
-    min-width: 80%;
     
 }
 
